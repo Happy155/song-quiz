@@ -1,0 +1,40 @@
+{% extends 'common/base.html' %}
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet"
+          type="text/css"
+          href="{% static 'members/style.css' %}" />
+    <div class="d-flex align-items-center justify-content-center"
+         style="min-height: 80vh">
+        <div class="card shadow p-4" style="max-width: 400px; width: 100%;">
+            <div class="text-center mb-4">
+                <h3 class="mb-0">Logowanie</h3>
+            </div>
+            <form action="" method="POST" autocomplete="off">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="username" class="form-label">Nazwa użytkownika</label>
+                    <input type="text"
+                           class="form-control"
+                           id="username"
+                           name="username"
+                           placeholder="Nazwa"
+                           required
+                           autofocus>
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">Hasło</label>
+                    <input type="password"
+                           class="form-control"
+                           id="password"
+                           name="password"
+                           placeholder="Hasło"
+                           required>
+                </div>
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-dark btn-block">Zaloguj się</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

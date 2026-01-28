@@ -1,0 +1,28 @@
+{% extends 'common/base.html' %}
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet"
+          type="text/css"
+          href="{% static 'members/style.css' %}" />
+    {% if form.errors %}
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            showToast("Wystąpił błąd, spróbuj ponownie.", "warning");
+          });
+        </script>
+    {% endif %}
+    <div class="d-flex align-items-center justify-content-center"
+         style="min-height: 80vh">
+        <div class="card shadow p-4" style="max-width: 430px; width: 100%">
+            <div class="text-center mb-4">
+                <h3 class="mb-0">Rejestracja</h3>
+            </div>
+            <form action="{% url 'register' %}" method="POST" autocomplete="off">
+                {% csrf_token %} {{ form.as_p }}
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-dark btn-block">Zarejestruj się</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
