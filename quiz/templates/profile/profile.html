@@ -1,0 +1,37 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container py-5 d-flex justify-content-center">
+        <div class="card shadow p-4" style="max-width: 420px; width: 100%;">
+            <div class="d-flex flex-column align-items-center mb-4">
+                <div class="rounded-circle bg-light d-flex align-items-center justify-content-center mb-3">
+                    <img src="{% static 'common/img/default-avatar.png' %}"
+                         alt="Avatar"
+                         class="img-fluid rounded-circle"
+                         style="width:110px;
+                                height:110px;
+                                object-fit:cover">
+                </div>
+                <h4 class="mb-1">{{ user_obj.username }}</h4>
+                <div class="text-muted mb-2">{{ user_obj.email }}</div>
+            </div>
+            <div class="d-grid mb-4">
+                <a href="{% url 'password_change' %}" class="btn btn-outline-dark w-100">Zmień hasło</a>
+            </div>
+            <hr>
+            <div>
+                <h5 class="mb-3 text-center">Statystyki</h5>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span>Łączna liczba punktów</span>
+                        <span class="fw-bold">{{ stats.points|default:0 }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        <span>Rozegrane gry</span>
+                        <span class="fw-bold">{{ stats.games_played|default:0 }}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

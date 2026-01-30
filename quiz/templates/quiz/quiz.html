@@ -1,0 +1,38 @@
+{% extends 'common/base.html' %}
+{% load static %}
+{% block content %}
+    <div class="container py-5 text-center">
+        <h2 class="mb-3">{{ playlist_title }}</h2>
+        <img src="{{ playlist_picture }}"
+             style="max-width:180px;
+                    border-radius:18px">
+        <div id="quiz-area" class="mt-4">
+            <button id="start-btn" class="btn btn-dark btn-lg mb-4">Rozpocznij quiz</button>
+            <div class="mx-auto"
+                 style="max-width: 700px;
+                        text-align: left;
+                        font-size: 1.1rem">
+                <p>
+                    Twoim celem jest jak najszybsze odgadnięcie piosenki.
+                    Na każdą piosenkę przypadają cztery odpowiedzi, z których tylko jedna jest poprawna.
+                </p>
+                <p>
+                    Im szybciej odpowiesz, tym więcej punktów uzyskasz. Pamiętaj, że brak odpowiedzi przed końcem czasu skutkuje utratą punktów.
+                </p>
+                <p>
+                    <strong>Powodzenia!</strong>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="timer-bar-container">
+        <div id="timer-bar"></div>
+    </div>
+    <script>
+    window.quizData = {{ quiz|safe }};
+    window.userIsAuthenticated = {{ user_is_authenticated|yesno:"true,false" }};
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="{% static 'quiz/css/quiz.css' %}">
+    <script src="{% static 'quiz/js/quiz.js' %}"></script>
+{% endblock %}

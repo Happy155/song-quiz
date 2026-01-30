@@ -1,0 +1,72 @@
+{% extends 'common/base.html' %}
+{% block content %}
+    <div class="container mt-5">
+        <h2 class="mb-4">Ranking</h2>
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>Lp.</th>
+                    <th>Użytkownik</th>
+                    <th>Punkty</th>
+                    <th>Liczba gier</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in leaderboard_with_position %}
+                    <tr>
+                        <td>{{ entry.position }}</td>
+                        <td>{{ entry.username }}</td>
+                        <td>{{ entry.points }}</td>
+                        <td>{{ entry.games_played }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-end">
+                {% if page_obj.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link"
+                           href="?page={{ page_obj.previous_page_number }}"
+                           aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </span>
+                    </li>
+                {% endif %}
+                {% for num in page_obj.paginator.page_range %}
+                    {% if num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                        {% if page_obj.number == num %}
+                            <li class="page-item active" aria-current="page">
+                                <span class="page-link">{{ num }}</span>
+                            </li>
+                        {% else %}
+                            <li class="page-item">
+                                <a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                            </li>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+                {% if page_obj.has_next %}
+                    <li class="page-item">
+                        <a class="page-link"
+                           href="?page={{ page_obj.next_page_number }}"
+                           aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                {% else %}
+                    <li class="page-item disabled">
+                        <span class="page-link" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </span>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
+    {% endblock %}
