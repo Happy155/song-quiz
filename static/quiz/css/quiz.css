@@ -1,0 +1,31 @@
+#timer-bar-container {
+  display: none;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 16px;
+  z-index: 9999;
+  background: transparent;
+  pointer-events: none;
+}
+
+#timer-bar {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #003366, #0f52ba);
+  transition: width 0.03s linear;
+  box-shadow: 0 0 12px #0003;
+}
+
+#summary-table {
+  max-width: 1000px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#summary-table th,
+#summary-table td {
+  text-align: left;
+  vertical-align: top;
+}
