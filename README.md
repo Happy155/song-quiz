@@ -34,7 +34,7 @@ Do uruchomienia projektu wymagane jest posiadanie zainstalowanego Dockera oraz D
 
 1. Sklonuj repozytorium
    ```sh
-   git clone https://github.com/Happy155/music-quiz.git
+   git clone https://github.com/Happy155/song-quiz.git
    ```
 1. Przejdź do folderu repozytorium
    ```sh
@@ -50,7 +50,7 @@ Po wykonaniu powyższych kroków strona powinna już działać i być dostępna 
 
 1. Wejdź w tryb exec kontenera ze stroną
    ```sh
-   docker exec -it music-quiz-web-1 /bin/bash
+   docker exec -it song-quiz-web-1 /bin/bash
    ```
 2. Stwórz konto administratora
    ```sh
