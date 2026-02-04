@@ -24,12 +24,6 @@ Backend aplikacji został zbudowany z wykorzystaniem frameworka Django, który o
 [![Bootstrap][bootstrap]][bootstrap-url]
 [![SQLite][sqlite]][sqlite-url]
 
-### Demo strony
-
-Działające demo strony jest dostępne pod adresem http://51.83.132.99:8000/.
-
-W celu zalogowania na konto administratora należy użyć loginu `admin` oraz hasła `admin`.
-
 <!-- GETTING STARTED -->
 ## Pierwsze kroki
 
