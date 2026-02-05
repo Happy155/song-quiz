@@ -38,7 +38,7 @@ Do uruchomienia projektu wymagane jest posiadanie zainstalowanego Dockera oraz D
    ```
 1. Przejdź do folderu repozytorium
    ```sh
-   cd music-quiz/
+   cd song-quiz/
    ```
 2. Uruchom projekt za pomocą Docker Compose
    ```sh
